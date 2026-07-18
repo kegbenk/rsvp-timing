@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  parity:
+    # macOS because the Swift twin must actually compile and run — a
+    # Linux-only job could not verify the one property this repo exists to hold.
+    runs-on: macos-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Report toolchain
+        run: |
+          node --version
+          swift --version
+
+      # Gate 1 — the fixture matches the canonical JS.
+      # Without this, editing rsvpTiming.js and forgetting to regenerate leaves
+      # the Swift check validating against STALE vectors, which passes happily
+      # and hides the change. That is the same class of silent drift the
+      # fixture was introduced to catch, one level up.
+      - name: Vectors are current with rsvpTiming.js
+        run: npm run check:vectors
+
+      # Gate 2 — the Swift twin reproduces the fixture exactly.
+      - name: Swift twin reproduces all vectors
+        run: npm run check:swift

@@ -83,12 +83,48 @@
       "renderable": true
     },
     {
+      "word": "administration",
+      "orpIndex": 4,
+      "actualOrpIndex": 4,
+      "before": "admi",
+      "orp": "n",
+      "after": "istration",
+      "renderable": true
+    },
+    {
+      "word": "characteristics",
+      "orpIndex": 5,
+      "actualOrpIndex": 5,
+      "before": "chara",
+      "orp": "c",
+      "after": "teristics",
+      "renderable": true
+    },
+    {
       "word": "uncharacteristic",
       "orpIndex": 5,
       "actualOrpIndex": 5,
       "before": "uncha",
       "orp": "r",
       "after": "acteristic",
+      "renderable": true
+    },
+    {
+      "word": "indistinguishable",
+      "orpIndex": 5,
+      "actualOrpIndex": 5,
+      "before": "indis",
+      "orp": "t",
+      "after": "inguishable",
+      "renderable": true
+    },
+    {
+      "word": "characteristically",
+      "orpIndex": 6,
+      "actualOrpIndex": 6,
+      "before": "charac",
+      "orp": "t",
+      "after": "eristically",
       "renderable": true
     },
     {
@@ -1156,6 +1192,168 @@
       "delayMs": 60
     },
     {
+      "word": "administration",
+      "wpm": 200,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 300
+    },
+    {
+      "word": "administration",
+      "wpm": 200,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2.5,
+      "wordLengthMultiplier": 5,
+      "lineBreakMultiplier": 3,
+      "delayMs": 330
+    },
+    {
+      "word": "administration",
+      "wpm": 200,
+      "pauseOnPunctuation": false,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 300
+    },
+    {
+      "word": "administration",
+      "wpm": 400,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 150
+    },
+    {
+      "word": "administration",
+      "wpm": 400,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2.5,
+      "wordLengthMultiplier": 5,
+      "lineBreakMultiplier": 3,
+      "delayMs": 165
+    },
+    {
+      "word": "administration",
+      "wpm": 400,
+      "pauseOnPunctuation": false,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 150
+    },
+    {
+      "word": "administration",
+      "wpm": 1000,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 60
+    },
+    {
+      "word": "administration",
+      "wpm": 1000,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2.5,
+      "wordLengthMultiplier": 5,
+      "lineBreakMultiplier": 3,
+      "delayMs": 66
+    },
+    {
+      "word": "administration",
+      "wpm": 1000,
+      "pauseOnPunctuation": false,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 60
+    },
+    {
+      "word": "characteristics",
+      "wpm": 200,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 300
+    },
+    {
+      "word": "characteristics",
+      "wpm": 200,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2.5,
+      "wordLengthMultiplier": 5,
+      "lineBreakMultiplier": 3,
+      "delayMs": 345
+    },
+    {
+      "word": "characteristics",
+      "wpm": 200,
+      "pauseOnPunctuation": false,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 300
+    },
+    {
+      "word": "characteristics",
+      "wpm": 400,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 150
+    },
+    {
+      "word": "characteristics",
+      "wpm": 400,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2.5,
+      "wordLengthMultiplier": 5,
+      "lineBreakMultiplier": 3,
+      "delayMs": 172.5
+    },
+    {
+      "word": "characteristics",
+      "wpm": 400,
+      "pauseOnPunctuation": false,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 150
+    },
+    {
+      "word": "characteristics",
+      "wpm": 1000,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 60
+    },
+    {
+      "word": "characteristics",
+      "wpm": 1000,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2.5,
+      "wordLengthMultiplier": 5,
+      "lineBreakMultiplier": 3,
+      "delayMs": 69
+    },
+    {
+      "word": "characteristics",
+      "wpm": 1000,
+      "pauseOnPunctuation": false,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 60
+    },
+    {
       "word": "uncharacteristic",
       "wpm": 200,
       "pauseOnPunctuation": true,
@@ -1229,6 +1427,168 @@
     },
     {
       "word": "uncharacteristic",
+      "wpm": 1000,
+      "pauseOnPunctuation": false,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 60
+    },
+    {
+      "word": "indistinguishable",
+      "wpm": 200,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 300
+    },
+    {
+      "word": "indistinguishable",
+      "wpm": 200,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2.5,
+      "wordLengthMultiplier": 5,
+      "lineBreakMultiplier": 3,
+      "delayMs": 375
+    },
+    {
+      "word": "indistinguishable",
+      "wpm": 200,
+      "pauseOnPunctuation": false,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 300
+    },
+    {
+      "word": "indistinguishable",
+      "wpm": 400,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 150
+    },
+    {
+      "word": "indistinguishable",
+      "wpm": 400,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2.5,
+      "wordLengthMultiplier": 5,
+      "lineBreakMultiplier": 3,
+      "delayMs": 187.5
+    },
+    {
+      "word": "indistinguishable",
+      "wpm": 400,
+      "pauseOnPunctuation": false,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 150
+    },
+    {
+      "word": "indistinguishable",
+      "wpm": 1000,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 60
+    },
+    {
+      "word": "indistinguishable",
+      "wpm": 1000,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2.5,
+      "wordLengthMultiplier": 5,
+      "lineBreakMultiplier": 3,
+      "delayMs": 75
+    },
+    {
+      "word": "indistinguishable",
+      "wpm": 1000,
+      "pauseOnPunctuation": false,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 60
+    },
+    {
+      "word": "characteristically",
+      "wpm": 200,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 300
+    },
+    {
+      "word": "characteristically",
+      "wpm": 200,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2.5,
+      "wordLengthMultiplier": 5,
+      "lineBreakMultiplier": 3,
+      "delayMs": 390
+    },
+    {
+      "word": "characteristically",
+      "wpm": 200,
+      "pauseOnPunctuation": false,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 300
+    },
+    {
+      "word": "characteristically",
+      "wpm": 400,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 150
+    },
+    {
+      "word": "characteristically",
+      "wpm": 400,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2.5,
+      "wordLengthMultiplier": 5,
+      "lineBreakMultiplier": 3,
+      "delayMs": 195
+    },
+    {
+      "word": "characteristically",
+      "wpm": 400,
+      "pauseOnPunctuation": false,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 150
+    },
+    {
+      "word": "characteristically",
+      "wpm": 1000,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2,
+      "wordLengthMultiplier": 0,
+      "lineBreakMultiplier": 3,
+      "delayMs": 60
+    },
+    {
+      "word": "characteristically",
+      "wpm": 1000,
+      "pauseOnPunctuation": true,
+      "punctuationMultiplier": 2.5,
+      "wordLengthMultiplier": 5,
+      "lineBreakMultiplier": 3,
+      "delayMs": 78
+    },
+    {
+      "word": "characteristically",
       "wpm": 1000,
       "pauseOnPunctuation": false,
       "punctuationMultiplier": 2,

@@ -7,7 +7,9 @@
   "license": "MIT",
   "scripts": {
     "vectors": "node generate-vectors.mjs > parity-vectors.json",
-    "check:swift": "swiftc -O RSVPTiming.swift main.swift -o /tmp/rsvp-check-parity && /tmp/rsvp-check-parity"
+    "check:vectors": "node generate-vectors.mjs > /tmp/rsvp-regen.json && { diff -q /tmp/rsvp-regen.json parity-vectors.json >/dev/null || { echo 'FAIL: parity-vectors.json is stale \u2014 rsvpTiming.js changed without regenerating. Run: npm run vectors (then re-run npm run check:swift)'; exit 1; }; } && echo 'vectors current'",
+    "check:swift": "swiftc -O RSVPTiming.swift main.swift -o /tmp/rsvp-check-parity && /tmp/rsvp-check-parity",
+    "check": "npm run check:vectors && npm run check:swift"
   },
   "repository": {
     "type": "git",
