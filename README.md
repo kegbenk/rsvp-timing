@@ -1,0 +1,129 @@
+# rsvp-timing
+
+RSVP timing engine — Optimal Recognition Point and per-word pacing — as
+parity-locked JavaScript and Swift implementations.
+
+Pure functions, zero dependencies on either side. No DOM, no UIKit, no app
+state.
+
+> **This is a derivative work.** The engine originates in
+> [thomaskolmans/rsvp-reading](https://github.com/thomaskolmans/rsvp-reading)
+> (MIT), which established its entire public surface. What this repo adds is a
+> Swift twin, a set of pacing refinements, and a golden fixture that holds the
+> two implementations to identical behaviour. Full attribution — including the
+> upstream contributor whose work is the conceptual core — is in
+> [NOTICE](NOTICE). If you want the original, go there first.
+
+## The problem
+
+RSVP shows one word at a time at a fixed point, so the eye never saccades. Two
+things decide whether that reads as prose or as a drum machine.
+
+**Where the eye lands.** The Optimal Recognition Point is the character the eye
+fixates on. It is not the centre — it sits left of centre and drifts right as
+words lengthen. Hold *that* letter still while the word changes around it and
+the text stops jittering horizontally.
+
+**How long each word holds.** A flat `60000 / wpm` interval is a metronome.
+Prose has rhythm, and the engine reproduces it:
+
+- sentence-ending punctuation extends the beat; commas extend it less
+- em-dash and en-dash count as sentence-end-equivalent pauses, while a hyphen
+  inside a compound like `well-known` does not
+- the first word after a paragraph break gets a reorientation beat
+- very long words get proportionally more time
+- **short words get attenuated pauses** — a 2-letter word taking a full 2×
+  pause reads as a hitch, since the eye absorbed it well inside the baseline.
+  The graduated scale runs 0.3 (1 letter) to 1.0 (7+).
+- when a word is both first-after-break *and* punctuated, the larger of the two
+  pauses wins rather than the two compounding, which produced a ~3× stutter
+
+It also handles a detail that stays invisible until it bites: **punctuation
+hidden behind trailing noise.** EPUBs routinely glue footnote refs to the
+preceding word (`theology.2`, `hierarchies.¹`), and dialogue ends in `."` or
+`?"`. In every one of those the final character is not the punctuation, so a
+naive suffix test silently fails and the sentence blows past with no beat.
+Trailing digits, superscripts, closing quotes and brackets are stripped before
+the punctuation tests run.
+
+## Token conventions
+
+| Token | Meaning |
+|---|---|
+| `"\n"` | paragraph break — renders as a blank beat |
+| `"⟩"` prefix | first word after a break — gets the reorientation beat |
+
+## Usage
+
+```js
+import { getWordDelay, splitWordForDisplay } from 'rsvp-timing';
+
+const { before, orp, after } = splitWordForDisplay('reading');
+// { before: 're', orp: 'a', after: 'ding' }
+
+getWordDelay('home.', 300);   // 400ms — 200ms baseline, doubled at sentence end
+getWordDelay('of,', 300);     // 240ms — comma pause, attenuated (2 letters)
+```
+
+```swift
+let parts = RSVPTiming.splitWordForDisplay("reading")
+let ms = RSVPTiming.getWordDelay(for: "home.", wpm: 300)
+```
+
+## Parity
+
+The JavaScript implementation is **canonical**. `parity-vectors.json` holds 487
+generated cases — every length bucket, punctuation form, footnote and quote
+shape, break marker, several scripts, and a sweep of WPM and parameter
+combinations — and the Swift twin must reproduce all of them exactly.
+
+```bash
+npm run vectors       # regenerate from the JS after an intentional change
+npm run check:swift   # assert the Swift twin still agrees
+```
+
+This fixture exists because a hand-maintained parity claim does not hold. The
+Swift port carried a `// byte-for-byte parity` header comment while silently
+diverging in two ways:
+
+1. **A missing length tier.** The port stopped at `<= 14 → 4, else 5`, omitting
+   the `<= 17 → 5, else 6` bucket, so every word of 18 or more characters
+   highlighted a different letter than the JS side.
+2. **A narrower number category.** `CharacterSet.decimalDigits` is Nd-only, so
+   it excluded superscripts (No) that the JS `\p{N}` matched — `hierarchies.¹`
+   pivoted differently on each platform.
+
+Both shipped in a real app. Neither is the kind of thing code review reliably
+catches; a golden fixture catches both on the first run. Add vectors when you
+add behaviour.
+
+### Known limitation
+
+Parity is guaranteed for the Basic Multilingual Plane. Above it the languages
+disagree structurally: `getActualORPIndex` in JS iterates UTF-16 code units, so
+an astral character appears as an unmatched lone surrogate, while Swift iterates
+grapheme clusters. Prose in the scripts this engine targets is unaffected, and
+emoji are not ORP-countable in either implementation, so this is documented
+rather than papered over.
+
+## Files
+
+| File | Role |
+|---|---|
+| `rsvpTiming.js` | canonical implementation |
+| `RSVPTiming.swift` | parity-locked twin |
+| `parity-vectors.json` | generated golden fixture — do not hand-edit |
+| `generate-vectors.mjs` | regenerates the fixture from the JS |
+| `main.swift` | standalone parity checker |
+
+## Scope
+
+Tokenization is out of scope — including the splitting of long dashed compounds,
+which is a tokenizer concern this module assumes has already happened. Rendering,
+animation and layout are the consumer's business.
+
+## License
+
+MIT. See [LICENSE](LICENSE) and [NOTICE](NOTICE) — the notice is not optional
+boilerplate here, since the MIT terms this inherits require the attribution to
+travel with the code.

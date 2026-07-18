@@ -1,0 +1,60 @@
+rsvp-timing
+===========
+
+This project is a derivative work. It is not an original implementation of RSVP
+timing, and the attribution below is not a courtesy — the MIT license it
+inherits requires it.
+
+Origin
+------
+
+The engine originates in **rsvp-reading** by Thomas Kolmans:
+
+    https://github.com/thomaskolmans/rsvp-reading
+
+which is MIT licensed. The upstream module (`src/lib/rsvp-utils.js`) already
+established this project's entire public surface: `getORPIndex`,
+`getActualORPIndex`, `getWordDelay`, `formatTimeRemaining`,
+`splitWordForDisplay`, `shouldPauseAtWord` and `extractWordFrame`.
+
+Upstream authors of that module, by commit:
+
+  * **Thomas Kolmans** <thomas.kolmans@n0name.eu>
+    Original implementation; multi-language support; length-calculation fixes.
+
+  * **Egidius Mysliwietz** ("Sermak") <egidius.mysliwietz@gmx.de>
+    "Analytic continuation of ORP Index based on word length" and
+    "Word delay adjustment based on word length" — the length-sensitivity of
+    both the recognition point and the per-word delay, which is the conceptual
+    core of this module.
+
+  * **adarshg** <adarshg98765@gmail.com>
+    Multi-word display setting (`extractWordFrame`).
+
+Changes in this work
+--------------------
+
+Copyright (c) 2026 Benjamin Keller. Developed in the RSVP pipeline of Velo
+(https://veloreader.com) and extracted here.
+
+  * Paragraph-break handling: the `"\n"` beat token, the `"⟩"` first-word-after-
+    break marker, and the reorientation pause.
+  * Graduated short-word attenuation of punctuation pauses, so short words no
+    longer take a full-length pause and read as a stutter.
+  * Non-compounding of stacked pauses: a word that is both first-after-break and
+    punctuated takes the larger of the two, not their product.
+  * Trailing-noise stripping before punctuation tests, so punctuation hidden
+    behind footnote markers, superscripts, closing quotes and brackets still
+    registers.
+  * Em-dash and en-dash treated as sentence-end-equivalent pauses, while
+    compound hyphens are not.
+  * Digits made ORP-countable, so numeric tokens centre like words.
+  * `getORPIndex` length buckets extended to explicit 15–17 and 18+ tiers,
+    replacing upstream's `Math.floor(Math.log2(len - 1)) + 1` continuation.
+  * `findNearestRenderableWordIndex` and `isRenderable`.
+  * The Swift implementation (`RSVPTiming.swift`) in its entirety.
+  * The parity fixture and checker (`parity-vectors.json`, `generate-vectors.mjs`,
+    `main.swift`).
+
+Both the upstream and the added work are distributed under the MIT license in
+LICENSE.

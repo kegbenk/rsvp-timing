@@ -1,0 +1,30 @@
+{
+  "name": "rsvp-timing",
+  "version": "0.1.0",
+  "description": "RSVP timing engine (ORP + per-word pacing) with parity-locked JS and Swift implementations",
+  "type": "module",
+  "main": "rsvpTiming.js",
+  "license": "MIT",
+  "scripts": {
+    "vectors": "node generate-vectors.mjs > parity-vectors.json",
+    "check:swift": "swiftc -O RSVPTiming.swift main.swift -o /tmp/rsvp-check-parity && /tmp/rsvp-check-parity"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kegbenk/rsvp-timing.git"
+  },
+  "keywords": [
+    "rsvp",
+    "speed-reading",
+    "orp",
+    "reading",
+    "typography"
+  ],
+  "files": [
+    "rsvpTiming.js",
+    "RSVPTiming.swift",
+    "parity-vectors.json",
+    "LICENSE",
+    "NOTICE"
+  ]
+}
