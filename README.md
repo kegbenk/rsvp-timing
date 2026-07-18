@@ -1,5 +1,8 @@
 # rsvp-timing
 
+[![CI](https://github.com/kegbenk/rsvp-timing/actions/workflows/ci.yml/badge.svg)](https://github.com/kegbenk/rsvp-timing/actions/workflows/ci.yml)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 RSVP timing engine — Optimal Recognition Point and per-word pacing — as
 parity-locked JavaScript and Swift implementations.
 
