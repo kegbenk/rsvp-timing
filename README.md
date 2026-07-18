@@ -72,7 +72,7 @@ let ms = RSVPTiming.getWordDelay(for: "home.", wpm: 300)
 
 ## Parity
 
-The JavaScript implementation is **canonical**. `parity-vectors.json` holds 487
+The JavaScript implementation is **canonical**. `parity-vectors.json` holds 527
 generated cases — every length bucket, punctuation form, footnote and quote
 shape, break marker, several scripts, and a sweep of WPM and parameter
 combinations — and the Swift twin must reproduce all of them exactly.
@@ -108,8 +108,7 @@ diverging in two ways:
    pivoted differently on each platform.
 
 Both shipped in a real app. Neither is the kind of thing code review reliably
-catches; a golden fixture catches both on the first run. Add vectors when you
-add behaviour.
+catches; a golden fixture catches both on the first run.
 
 ### Known limitation
 
@@ -129,6 +128,7 @@ rather than papered over.
 | `parity-vectors.json` | generated golden fixture — do not hand-edit |
 | `generate-vectors.mjs` | regenerates the fixture from the JS |
 | `main.swift` | standalone parity checker |
+| `.github/workflows/ci.yml` | runs both gates on macOS |
 
 ## Scope
 
