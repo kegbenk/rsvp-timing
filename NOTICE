@@ -19,16 +19,16 @@ established this project's entire public surface: `getORPIndex`,
 
 Upstream authors of that module, by commit:
 
-  * **Thomas Kolmans** <thomas.kolmans@n0name.eu>
+  * **Thomas Kolmans** (GitHub @thomaskolmans)
     Original implementation; multi-language support; length-calculation fixes.
 
-  * **Egidius Mysliwietz** ("Sermak") <egidius.mysliwietz@gmx.de>
+  * **Egidius Mysliwietz** ("Sermak", GitHub @emysliwietz)
     "Analytic continuation of ORP Index based on word length" and
     "Word delay adjustment based on word length" — the length-sensitivity of
     both the recognition point and the per-word delay, which is the conceptual
     core of this module.
 
-  * **adarshg** <adarshg98765@gmail.com>
+  * **adarshg** (GitHub @adarshg98765)
     Multi-word display setting (`extractWordFrame`).
 
 Changes in this work
